@@ -1,5 +1,10 @@
-import logo from './logo.svg';
+
 import './App.css';
+import PrevisaoTempo from './Componentes/PrevisaoTempo';
+
+
+
+
 
 function App() {
   return (
@@ -7,6 +12,7 @@ function App() {
       <header className="App-header">
         
       </header>
+      <PrevisaoTempo/>
     </div>
   );
 }
