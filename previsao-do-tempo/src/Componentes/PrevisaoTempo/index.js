@@ -1,5 +1,10 @@
 import "./PrevisaoTempo.css";
 import { useState, useEffect } from 'react';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import { faTemperatureArrowDown, faTemperatureArrowUp, faDroplet, faWind, faMapMarkerAlt, faTemperature0 } from '@fortawesome/free-solid-svg-icons';
+
 import axios from "axios";
 
 import countries from 'i18n-iso-countries';
@@ -10,14 +15,13 @@ function PrevisaoTempo() {
 
 
     const [apiDataClima, setApiDataClima] = useState({});
-    const [apiDataPrevisao, setApiDataPrevisao] = useState({});
     const [getState, setGetState] = useState('');
     const [state, setState] = useState('');
 
 
     const apiKey = process.env.REACT_APP_API_KEY;
     const apiClimaUrl = `https://api.openweathermap.org/data/2.5/weather?q=${state}&appid=${apiKey}&lang=pt_br`;
-    const apiPrevisaoUrl = `https://api.openweathermap.org/data/2.5/forecast?&q=${state}&APPID=${apiKey}`
+
 
 
     const getWeatherInfo = async () => {
@@ -25,15 +29,9 @@ function PrevisaoTempo() {
         setApiDataClima(data);
     };
 
-    const getForecastInfo = async () => {
-        const { data } = await axios.get(apiPrevisaoUrl);
-        setApiDataPrevisao(data);
-    };
 
 
-    useEffect(() => {
-        getForecastInfo();
-    }, [apiPrevisaoUrl]);
+
 
 
     useEffect(() => {
@@ -60,58 +58,76 @@ function PrevisaoTempo() {
             <div >
 
 
-                <div class="col-auto">
+                <div className="input-container">
                     <input
                         type="text"
                         id="location-name"
-                        class="form-control"
+                        className="form-control"
                         onChange={inputHandler}
                         value={getState}
                         placeholder="Digite a localização"
                     />
+                    <button className="btn" onClick={submitHandler}>
+                        Procurar
+                    </button>
                 </div>
-                <button className="btn" onClick={submitHandler}>
-                    Procurar
-                </button>
+
             </div>
 
             <div  >
                 {apiDataClima.main ? (
                     <div >
-                        <img
-                            src={`http://openweathermap.org/img/w/${apiDataClima.weather[0].icon}.png`}
-                            
-                        />
 
                         <p >
-                            {kelvinToFarenheit(apiDataClima.main.temp)}&deg; C
-                        </p>
+                            <FontAwesomeIcon icon={faMapMarkerAlt} />{' '}
 
-                        <p >
-                            <i className="fas fa-map-marker-alt"></i>{' '}
                             <strong>{apiDataClima.name}</strong>
                         </p>
+
+                        <img
+                            src={`http://openweathermap.org/img/w/${apiDataClima.weather[0].icon}.png`}
+
+                        />
+                        <p>
+                            {' '}
+                            <strong>{apiDataClima.weather[0].main}</strong>
+                        </p>
+                        <p >
+                            <FontAwesomeIcon icon={faTemperature0} />{' '}
+                            <strong>{kelvinToFarenheit(apiDataClima.main.temp)}&deg; C</strong>
+                        </p>
+
+
 
                         <div >
                             <div >
                                 <p>
-                                    <i class="fas fa-temperature-low "></i>{' '}
+                                    <FontAwesomeIcon icon={faTemperatureArrowDown} />{' '}
                                     <strong>
                                         {kelvinToFarenheit(apiDataClima.main.temp_min)}&deg; C
                                     </strong>
                                 </p>
                                 <p>
-                                    <i className="fas fa-temperature-high"></i>{' '}
+                                    <FontAwesomeIcon icon={faTemperatureArrowUp} />{' '}
                                     <strong>
                                         {kelvinToFarenheit(apiDataClima.main.temp_max)}&deg; C
                                     </strong>
                                 </p>
+                                <p>
+                                    <FontAwesomeIcon icon={faDroplet} />{' '}
+                                    <strong>
+                                        {apiDataClima.main.humidity} %
+                                    </strong>
+                                </p>
+                                <p>
+                                    <FontAwesomeIcon icon={faWind} />{' '}
+                                    <strong>
+                                        {apiDataClima.wind.speed} m/s
+                                    </strong>
+                                </p>
                             </div>
                             <div >
-                                <p>
-                                    {' '}
-                                    <strong>{apiDataClima.weather[0].main}</strong>
-                                </p>
+
                                 <p>
                                     <strong>
                                         {' '}
@@ -122,7 +138,7 @@ function PrevisaoTempo() {
                                 </p>
                             </div>
                         </div>
-                        
+
 
                     </div>
 

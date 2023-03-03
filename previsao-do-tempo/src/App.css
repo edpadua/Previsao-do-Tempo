@@ -51,7 +51,7 @@
   vertical-align: middle;
   background-color: #3F92D7;
   border: 1px solid transparent;
-  border-radius: 4%;
+  border-radius: 4px;
   border-color: #FFFFFF;
   border-width: 1px;
   padding: 6px 12px;
@@ -59,6 +59,34 @@
   color: #FFFFFF;
 }
 
+.btn:hover{
+  background-color: #206299;
+}
+
+
+.form-control{
+    display: block;
+    width: 30%;
+    height: 34px;
+    padding: 6px 12px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555 !important;
+    background-color: #fff !important;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+   
+}
+
+
+input:-internal-autofill-selected {
+  appearance: menulist-button;
+  background-image: none !important;
+  background-color: #ffffff !important;
+  color: #555 !important;
+}
 
 
 h2{
