@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  color:#FFFFFF;
+  background-color: #3F92D7;
+  font-family: 'Open Sans', sans-serif;
+  min-height: 500px;
 }
 
 .App-logo {
@@ -14,7 +18,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+ 
   
   display: flex;
   flex-direction: column;
@@ -35,4 +39,28 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.btn{
+  display: inline-block;
+  margin-bottom: 0;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #3F92D7;
+  border: 1px solid transparent;
+  border-radius: 4%;
+  border-color: #FFFFFF;
+  border-width: 1px;
+  padding: 6px 12px;
+  cursor: pointer;
+  color: #FFFFFF;
+}
+
+
+
+h2{
+  font-weight: bold;
 }

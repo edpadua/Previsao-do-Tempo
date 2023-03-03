@@ -70,7 +70,7 @@ function PrevisaoTempo() {
                         placeholder="Digite a localização"
                     />
                 </div>
-                <button className="btn btn-primary mt-2" onClick={submitHandler}>
+                <button className="btn" onClick={submitHandler}>
                     Procurar
                 </button>
             </div>
@@ -115,24 +115,14 @@ function PrevisaoTempo() {
                                 <p>
                                     <strong>
                                         {' '}
-                                        {countries.getName(apiDataClima.sys.country, 'pt', {
+                                        {countries.getName(apiDataClima.sys.country, 'pt_br', {
                                             select: 'official',
                                         })}
                                     </strong>
                                 </p>
                             </div>
                         </div>
-                        {
-                            apiDataPrevisao.list.map((forecast, i) => (
-                                <div key={i}>
-                                    
-                                    <h4>{forecast.dt_txt}</h4>
-                                    <ul>
-                                        <li>Temperatura: {forecast.main.temp}</li>
-                                        <li>Umidade: {forecast.main.humidity}</li>
-                                    </ul>
-                                </div>
-                            ))}
+                        
 
                     </div>
 

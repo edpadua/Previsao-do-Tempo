@@ -9,7 +9,7 @@ import PrevisaoTempo from './Componentes/PrevisaoTempo';
 function App() {
   return (
     <div className="App">
-      <header className="d-flex justify-content-center align-items-center">
+      <header className="App-header" >
                 <h2>Previsao do Tempo e Clima</h2>
       </header>
       <PrevisaoTempo/>
