@@ -21,6 +21,7 @@ function PrevisaoTempo() {
 
     const apiKey = process.env.REACT_APP_API_KEY;
     const apiClimaUrl = `https://api.openweathermap.org/data/2.5/weather?q=${state}&appid=${apiKey}&lang=pt_br`;
+    
 
 
 
@@ -30,12 +31,24 @@ function PrevisaoTempo() {
     };
 
 
+    let getWeather = async () => {
+        let res = await axios.get("http://api.openweathermap.org/data/2.5/weather", {
+          params: {
+            q: state,
+            appid: apiKey,
+            lang: 'pt_br',
+            units: 'metric'
+          }
+        });
+        setApiDataClima(res.data);
+      }
+
 
 
 
 
     useEffect(() => {
-        getWeatherInfo();
+        getWeather(state);
     }, [apiClimaUrl]);
 
 
@@ -47,9 +60,7 @@ function PrevisaoTempo() {
         setState(getState);
     };
 
-    const kelvinToFarenheit = (k) => {
-        return (k - 273.15).toFixed(2);
-    };
+    
 
     return (
 
@@ -86,7 +97,7 @@ function PrevisaoTempo() {
 
                         <img
                             src={`http://openweathermap.org/img/w/${apiDataClima.weather[0].icon}.png`}
-
+                            alt={apiDataClima.name}
                         />
                         <p>
                             {' '}
@@ -94,7 +105,7 @@ function PrevisaoTempo() {
                         </p>
                         <p >
                             <FontAwesomeIcon icon={faTemperature0} />{' '}
-                            <strong>{kelvinToFarenheit(apiDataClima.main.temp)}&deg; C</strong>
+                            <strong>{apiDataClima.main.temp}&deg; C</strong>
                         </p>
 
 
@@ -104,13 +115,13 @@ function PrevisaoTempo() {
                                 <p>
                                     <FontAwesomeIcon icon={faTemperatureArrowDown} />{' '}
                                     <strong>
-                                        {kelvinToFarenheit(apiDataClima.main.temp_min)}&deg; C
+                                        {apiDataClima.main.temp_min}&deg; C
                                     </strong>
                                 </p>
                                 <p>
                                     <FontAwesomeIcon icon={faTemperatureArrowUp} />{' '}
                                     <strong>
-                                        {kelvinToFarenheit(apiDataClima.main.temp_max)}&deg; C
+                                        {apiDataClima.main.temp_max}&deg; C
                                     </strong>
                                 </p>
                                 <p>
@@ -145,7 +156,7 @@ function PrevisaoTempo() {
 
 
                 ) : (
-                    <h1></h1>
+                    <h2>Não informações para mostrar</h2>
                 )}
             </div>
         </div>
