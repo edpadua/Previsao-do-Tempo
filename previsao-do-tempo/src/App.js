@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header" >
-                <h2>Previsao do Tempo e Clima</h2>
+                <h2>Tempo e Clima</h2>
       </header>
       <PrevisaoTempo/>
     </div>

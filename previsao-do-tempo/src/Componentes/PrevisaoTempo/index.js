@@ -10,6 +10,8 @@ import axios from "axios";
 import countries from 'i18n-iso-countries';
 
 
+
+
 function PrevisaoTempo() {
 
 
@@ -25,10 +27,7 @@ function PrevisaoTempo() {
 
 
 
-    const getWeatherInfo = async () => {
-        const { data } = await axios.get(apiClimaUrl);
-        setApiDataClima(data);
-    };
+    
 
 
     let getWeather = async () => {
@@ -136,6 +135,12 @@ function PrevisaoTempo() {
                                         {apiDataClima.wind.speed} m/s
                                     </strong>
                                 </p>
+                                <p>
+                                   
+                                    <strong>
+                                        {Date(apiDataClima.dt*1000)} 
+                                    </strong>
+                                </p>
                             </div>
                             <div >
 
@@ -156,7 +161,7 @@ function PrevisaoTempo() {
 
 
                 ) : (
-                    <h2>Não informações para mostrar</h2>
+                    <div></div>
                 )}
             </div>
         </div>
