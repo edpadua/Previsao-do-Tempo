@@ -31,7 +31,7 @@ function PrevisaoTempo() {
 
 
     let getWeather = async () => {
-        let res = await axios.get("http://api.openweathermap.org/data/2.5/weather", {
+        let res = await axios.get("https://api.openweathermap.org/data/2.5/weather", {
           params: {
             q: state,
             appid: apiKey,
@@ -95,7 +95,7 @@ function PrevisaoTempo() {
                         </p>
 
                         <img
-                            src={`http://openweathermap.org/img/w/${apiDataClima.weather[0].icon}.png`}
+                            src={`https://openweathermap.org/img/w/${apiDataClima.weather[0].icon}.png`}
                             alt={apiDataClima.name}
                         />
                         <p>
