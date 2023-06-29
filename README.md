@@ -15,7 +15,7 @@
  
 ## About
 
-Application that returns weather information for a particular location chosen by the user. The API used is OpenWeatherMap.
+Application developed with the ReactJS library that returns weather information for a particular location chosen by the user. The API used is OpenWeatherMap and its consumption is carried out with the Axios library. The User types the name of the city and information from the last record of temperature, humidity, wind speed and the weather at that location is displayed.
 
 ### Screeshot - Desktop
 
@@ -30,3 +30,22 @@ Application that returns weather information for a particular location chosen by
 ### Screeshot - Mobile
 
 <img src="https://github.com/edpadua/Previsao-do-Tempo/assets/4975360/449fac74-8fa4-46e8-b3c4-3d555207f3d7" style="width: 50%;" >
+
+### Technologies
+
+- [ReactJS](https://reactjs.org)
+- [Create React App](https://create-react-app.dev/)
+- [Open Weather Map API](https://api.openweathermap.org/)
+- [Axios](https://www.npmjs.com/package/axios)
+- [i18n-iso-countries](https://www.npmjs.com/package/i18n-iso-countries)
+
+## License
+
+Distributed under the MIT License. See `LICENSE.txt` for more information.
+
+
+## Contact
+
+Eduardo de Pádua: ed.padua@gmail.com
+
+Project Link: [https://github.com/edpadua/Previsao-do-Tempo/](https://github.com/edpadua/Previsao-do-Tempo) 
