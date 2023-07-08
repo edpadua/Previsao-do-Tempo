@@ -15,7 +15,7 @@
  
 ## About
 
-Application developed with the ReactJS library that returns weather information for a particular location chosen by the user. The API used is OpenWeatherMap and its consumption is carried out with the Axios library. The User types the name of the city and information from the last record of temperature, humidity, wind speed and the weather at that location is displayed.
+Application developed with the ReactJS library that returns weather information for a particular location chosen by the user. The API used is OpenWeatherMap and its consumption is carried out with the Axios library. The User types the name of the city and information from the last record of temperature, min temperature, max temperature, humidity, wind speed and the weather at that location is displayed.
 
 ### Screeshot - Desktop
 
